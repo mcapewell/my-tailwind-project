@@ -9,35 +9,30 @@
 <body>
     <div id="app" class="w-screen h-screen flex flex-col">
         <div class="flex items-stretch justify-center border-b shadow-inner">
-            <button class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px border-transparent focus:bg-gray-200">
+            <button v-on:click="changeSize('xs')" v-bind:class="[screenSize == 'xs' ? 'border-blue-500' : 'border-transparent']" class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px focus:bg-gray-200">
                 <svg width="8.57142857142857" height="24" viewBox="0 0 10 28" class="fill-current block mx-auto mb-1"><path d="M1.5 12h7a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 8.5 28h-7A1.5 1.5 0 0 1 0 26.5v-13A1.5 1.5 0 0 1 1.5 12zM1 15v10h8V15H1zm4 12.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM4 13v1h2v-1H4z" fill-rule="evenodd"></path></svg>
                 <span class="text-sm">xs</span>
             </button>
-            <button class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px border-transparent focus:bg-gray-200">
+            <button v-on:click="changeSize('sm')" v-bind:class="[screenSize == 'sm' ? 'border-blue-500' : 'border-transparent']" class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px focus:bg-gray-200">
                 <svg width="11.999999999999998" height="24" viewBox="0 0 14 28" class="fill-current block mx-auto mb-1"><path d="M1.5 6h11A1.5 1.5 0 0 1 14 7.5v19a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 26.5v-19A1.5 1.5 0 0 1 1.5 6zM1 9v16h12V9H1zm6 18.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM7 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill-rule="evenodd"></path></svg>
                 <span class="text-sm">sm</span>
             </button>
-            <button class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px border-transparent focus:bg-gray-200">
+            <button v-on:click="changeSize('md')" v-bind:class="[screenSize == 'md' ? 'border-blue-500' : 'border-transparent']" class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px focus:bg-gray-200">
                 <svg width="22.28571428571428" height="24" viewBox="0 0 26 28" class="fill-current block mx-auto mb-1"><path d="M26 26.5a1.5 1.5 0 0 1-1.5 1.5h-23A1.5 1.5 0 0 1 0 26.5v-14A1.5 1.5 0 0 1 1.5 11h23a1.5 1.5 0 0 1 1.5 1.5v14zm-3 .5V12H3v15h20zm1.5-6.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-23-.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill-rule="evenodd"></path></svg>
                 <span class="text-sm">md</span>
             </button>
-            <button class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px border-transparent focus:bg-gray-200">
+            <button v-on:click="changeSize('lg')" v-bind:class="[screenSize == 'lg' ? 'border-blue-500' : 'border-transparent']" class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px focus:bg-gray-200">
                 <svg width="32.57142857142856" height="24" viewBox="0 0 38 28" class="fill-current block mx-auto mb-1"><path d="M34 26h4v1c-1.333.667-2.667 1-4 1H4c-1.333 0-2.667-.333-4-1v-1h4V7.5A1.5 1.5 0 0 1 5.5 6h27A1.5 1.5 0 0 1 34 7.5V26zM6 8v18h26V8H6z" fill-rule="evenodd"></path></svg>
                 <span class="text-sm">lg</span>
             </button>
-            <button class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px border-blue-500 focus:bg-gray-200">
+            <button v-on:click="changeSize('xl')" v-bind:class="[screenSize == 'xl' ? 'border-blue-500' : 'border-transparent']" class="inline-block text-center cursor-pointer focus:outline-none px-4 pt-3 pb-1 rounded-none border-b-2 -mb-px focus:bg-gray-200">
                 <svg width="30.85714285714285" height="24" viewBox="0 0 36 28" class="fill-current block mx-auto mb-1"><path d="M20.857 24l.857 3H24v1H12v-1h2.286l.857-3H1.5A1.5 1.5 0 0 1 0 22.5v-21A1.5 1.5 0 0 1 1.5 0h33A1.5 1.5 0 0 1 36 1.5v21a1.5 1.5 0 0 1-1.5 1.5H20.857zM2 2v18h32V2H2z"></path></svg>
                 <span class="text-sm">xl</span>
             </button>
         </div>
         <div class="flex-1 my-3 overflow-hidden relative">
-            <!-- <iframe class="bg-gray-100 mx-auto border" src="http://127.0.0.1:8080/credit-card.html" width="480" style="width: 482px; height: 100%; transform: scale(1); transform-origin: 0px 0px;"></iframe> -->
-            <!-- <iframe class="bg-gray-100 mx-auto border" src="http://127.0.0.1:8080/credit-card.html" width="640" style="width: 642px; height: 100%; transform: scale(1); transform-origin: 0px 0px;"></iframe> -->
-            <!-- <iframe class="bg-gray-100 mx-auto border" src="http://127.0.0.1:8080/credit-card.html" width="768" style="width: 770px; height: 100%; transform: scale(1); transform-origin: 0px 0px;"></iframe> -->
-            <!-- <iframe class="bg-gray-100 mx-auto border" src="http://127.0.0.1:8080/credit-card.html" width="1024" style="width: 1026px; height: 100%; transform: scale(1); transform-origin: 0px 0px;"></iframe> -->
-            <!-- <iframe class="mx-auto border" src="http://127.0.0.1:8080/credit-card.html" width="1280" style="width: 1282px; height: 100%; transform: scale(1); transform-origin: 0px 0px;"></iframe> -->
             <iframe class="mx-auto border" src="http://127.0.0.1:8080/credit-card.html" v-bind:width="iframeWidth" v-bind:style="iframeStyle"></iframe>
-            <span v-if="scaled" class="absolute right-0 bottom-0 p-2 font-medium">Scaled 53%</span>
+            <span v-if="scaled" class="absolute right-0 bottom-0 p-2 font-medium">Scaled {{ scale }}%</span>
         </div>
     </div>
     <!-- development version, includes helpful console warnings -->
@@ -50,14 +45,67 @@
             data: {
                 screenSize: 'xl',
                 scaled: false,
+                scale: 1,
                 iframeWidth: 1280,
                 iframeStyle: {
                     height: '100%',
                     transform: 'scale(1)',
                     'transform-origin': '0px 0px'
                 }
+            },
+            methods: {
+                changeSize: function (size) {
+                    this.screenSize = size;
+                }
+            },
+            watch: {
+                screenSize: function (val) {
+                    switch (val) {
+                        case 'xs':
+                            this.iframeWidth = 480;
+                            break;
+                        case 'sm':
+                            this.iframeWidth = 640;
+                            break;
+                        case 'md':
+                            this.iframeWidth = 768;
+                            break;
+                        case 'lg':
+                            this.iframeWidth = 1024;
+                            break;
+                        case 'xl':
+                            this.iframeWidth = 1280;
+                            break;
+                    }
+
+                    var currentWidth = getWidth();
+
+                    if (this.iframeWidth > currentWidth) {
+                        this.scaled = true;
+                        var scale = currentWidth / this.iframeWidth;
+                        this.scale = Math.round(scale * 100);
+                        this.iframeStyle.height = 100 / scale + '%';
+                        this.iframeStyle.transform = 'scale(' + scale + ')';
+                    }
+                    else {
+                        this.scaled = false;
+                        this.scale = 1;
+                        this.iframeStyle.height = '100%';
+                        this.iframeStyle.transform = 'scale(1)';
+                    }
+                }
             }
         })
+
+        function getWidth() {
+            return Math.max(
+                document.body.scrollWidth,
+                document.documentElement.scrollWidth,
+                document.body.offsetWidth,
+                document.documentElement.offsetWidth,
+                document.documentElement.clientWidth
+            );
+        }
     </script>
 </body>
 </html>
