@@ -31,7 +31,7 @@
             </button>
         </div>
         <div class="flex-1 my-3 overflow-hidden relative">
-            <iframe class="mx-auto border" src="http://127.0.0.1:8080/credit-card.html" v-bind:width="iframeWidth" v-bind:style="iframeStyle"></iframe>
+            <iframe class="mx-auto border" src="http://127.0.0.1:8080/" v-bind:width="iframeWidth" v-bind:style="iframeStyle"></iframe>
             <span v-if="scaled" class="absolute right-0 bottom-0 p-2 font-medium">Scaled {{ scale }}%</span>
         </div>
     </div>
@@ -43,14 +43,29 @@
         var app = new Vue({
             el: '#app',
             data: {
-                screenSize: 'xl',
+                screenSize: 'xs',
                 scaled: false,
                 scale: 1,
-                iframeWidth: 1280,
                 iframeStyle: {
                     height: '100%',
                     transform: 'scale(1)',
                     'transform-origin': '0px 0px'
+                }
+            },
+            computed: {
+                iframeWidth: function () {
+                    switch (this.screenSize) {
+                        case 'xs':
+                            return 480;
+                        case 'sm':
+                            return 640;
+                        case 'md':
+                            return 768;
+                        case 'lg':
+                            return 1024;
+                        case 'xl':
+                            return 1280;
+                    }
                 }
             },
             methods: {
@@ -60,24 +75,6 @@
             },
             watch: {
                 screenSize: function (val) {
-                    switch (val) {
-                        case 'xs':
-                            this.iframeWidth = 480;
-                            break;
-                        case 'sm':
-                            this.iframeWidth = 640;
-                            break;
-                        case 'md':
-                            this.iframeWidth = 768;
-                            break;
-                        case 'lg':
-                            this.iframeWidth = 1024;
-                            break;
-                        case 'xl':
-                            this.iframeWidth = 1280;
-                            break;
-                    }
-
                     var currentWidth = getWidth();
 
                     if (this.iframeWidth > currentWidth) {
